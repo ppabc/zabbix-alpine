@@ -6,7 +6,5 @@ MAINTAINER ppabc <ppabc@qq.com>
 COPY mysql /mysql
 RUN chmod +x /mysql/install.sh  && chmod +x /mysql/startup.sh && sh /mysql/install.sh
 
-WORKDIR /data
-
 EXPOSE 3306
 CMD ["/mysql/startup.sh"]

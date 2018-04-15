@@ -9,3 +9,4 @@ set -x \
 	&& chmod 777 /tmp
 	
 apk add --update mariadb mariadb-client && rm -f /var/cache/apk/*
+cp /mysql/my.cnf /etc/mysql/my.cnf
