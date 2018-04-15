@@ -54,4 +54,6 @@ EOF
   rm -f $tfile
 fi
 
-exec /usr/bin/mysqld --user=root --datadir=/data/mysql/data --console
+exec /usr/bin/mysqld --user=root --datadir=/data/mysql/data --console &
+mysql -uroot -D zabbix -p"111111" < "/mysql/zabbix.sql"
+ping 127.0.0.1 >> /dev/null
