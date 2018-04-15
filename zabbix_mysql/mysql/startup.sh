@@ -51,7 +51,6 @@ EOF
   fi
 
   /usr/bin/mysqld --user=root --bootstrap --datadir=/data/mysql/data/ --verbose=0 < $tfile
-  /usr/bin/mysqld --user=root --bootstrap --datadir=/data/mysql/data/ --verbose=0 < /mysql/zabbix.sql
   rm -f $tfile
 fi
 
