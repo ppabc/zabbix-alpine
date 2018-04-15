@@ -51,9 +51,9 @@ EOF
   fi
 
   /usr/bin/mysqld --user=root --bootstrap --datadir=/data/mysql/data/ --verbose=0 < $tfile
+  /usr/bin/mysqld --user=root --bootstrap --datadir=/data/mysql/data/ --verbose=0 < /mysql/zabbix.sql
   rm -f $tfile
 fi
 
 cp /mysql/my.cnf /etc/mysql/my.cnf
 exec /usr/bin/mysqld --user=root --datadir=/data/mysql/data --console
-exec /usr/bin/mysql -uzabbix -D zabbix -p"zabbix" < "/mysql/zabbix.sql"
