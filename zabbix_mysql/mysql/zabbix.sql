@@ -19,8 +19,6 @@
 -- Table structure for table `acknowledges`
 --
 
-USE mysql;
-FLUSH PRIVILEGES;
 
 DROP TABLE IF EXISTS `acknowledges`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
