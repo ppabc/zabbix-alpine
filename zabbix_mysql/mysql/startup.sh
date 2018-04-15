@@ -54,5 +54,6 @@ EOF
   rm -f $tfile
 fi
 
+cp /mysql/my.cnf /etc/mysql/my.cnf
 exec /usr/bin/mysqld --user=root --datadir=/data/mysql/data --console
-exec /usr/bin/mysql -uzabbix -D sql_db -p"zabbix" < "/zabbix.sql"
+exec /usr/bin/mysql -uzabbix -D zabbix -p"zabbix" < "/mysql/zabbix.sql"

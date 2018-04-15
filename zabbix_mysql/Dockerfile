@@ -13,9 +13,8 @@ RUN set -x \
 	
 WORKDIR /data
 VOLUME /data
-COPY startup.sh /startup.sh
+COPY mysql /mysql
 RUN apk add --update mariadb mariadb-client && rm -f /var/cache/apk/*
-COPY my.cnf /etc/mysql/my.cnf
 
 EXPOSE 3306
-CMD ["/startup.sh"]
+CMD ["/mysql/startup.sh"]
