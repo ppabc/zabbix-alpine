@@ -31,6 +31,7 @@ sed -i '/FpingLocation=/a\FpingLocation=/usr/sbin/fping' /etc/zabbix/zabbix_serv
     chown -R zabbix /var/log/zabbix && \
     chown -R zabbix /var/run/zabbix && \
     echo "zabbix ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/zabbix && \
+    sed -i "s/Listen 80/Listen 8080/"  /etc/apache2/httpd.conf && \
     sed -i ''/DBHost=/a\DBHost=$DBHOST'' /etc/zabbix/zabbix_server.conf && \
     sed -i ''/DBPort=/a\DBPort=$DBPORT'' /etc/zabbix/zabbix_server.conf && \
     sed -i ''/DBPassword=/a\DBPassword=$DBPASSWORD'' /etc/zabbix/zabbix_server.conf

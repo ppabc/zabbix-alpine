@@ -51,7 +51,7 @@ StartAgents=0
 Hostname=$AgentdIP
 RefreshActiveChecks=120
 BufferSize=200
-Timeout=3
+Timeout=30
 UnsafeUserParameters=1
 EOF
 

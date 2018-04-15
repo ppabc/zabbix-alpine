@@ -33,6 +33,11 @@ FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY "$MYSQL_ROOT_PASSWORD" WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
 UPDATE user SET password=PASSWORD("$MYSQL_ROOT_PASSWORD") WHERE user='root' AND host='localhost';
+create user zabbix@'127.0.0.1' identified by 'zabbix';
+create user zabbix@localhost identified by 'zabbix';
+create database zabbix char set utf8;
+grant all on zabbix.* to zabbix@'127.0.0.1';
+grant all on zabbix.* to zabbix@localhost;
 EOF
 
   if [ "$MYSQL_DATABASE" != "" ]; then
@@ -50,3 +55,4 @@ EOF
 fi
 
 exec /usr/bin/mysqld --user=root --datadir=/data/mysql/data --console
+exec /usr/bin/mysql -uzabbix -D sql_db -p"zabbix" < "/zabbix.sql"
