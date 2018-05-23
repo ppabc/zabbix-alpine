@@ -3,4 +3,7 @@ alpine系统下搭建zabbix server和zabbix_agentd
 
 # alpine-zabbix
 zabbix server based on alpine
-2018a
+
+
+docker run -d --name zabbix-mysql -v /data/mysql:/data --net=host -it ppabc/zabbix:mysql
+
