@@ -9,3 +9,4 @@ RUN chmod +x /mysql/install.sh  && chmod +x /mysql/startup.sh && sh /mysql/insta
 
 EXPOSE 3306
 
+CMD ["/mysql/startup.sh"]
