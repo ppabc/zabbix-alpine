@@ -10,6 +10,7 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
         RUN set -x ; \
         addgroup -g 10050 zabbix ; \
         adduser -S -D -H -h /dev/null -s /sbin/nologin -G zabbix -u 10050 zabbix ;\
+        apk update ; \
         apk --no-cache add --virtual mailhog-build-dependencies \
                 go \
                 git \
@@ -24,7 +25,6 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
        rm -rf /usr/src/gocode ; \
        apk del --purge mailhog-build-dependencies ; \
        adduser -S -D -H -h /dev/null -u 1025 mailhog ; \
-       apk update ; \
        apk --no-cache upgrade ; \
        apk --no-cache add \
             bash \
