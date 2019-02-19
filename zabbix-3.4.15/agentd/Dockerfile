@@ -7,12 +7,10 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
         ENABLE_CRON=FALSE \
         ENABLE_SMTP=FALSE \
         ENABLE_ZABBIX=TRUE
-
 ### Add Zabbix User First
         RUN set -x ; \
         addgroup -g 10050 zabbix ; \
         adduser -S -D -H -h /dev/null -s /sbin/nologin -G zabbix -u 10050 zabbix ;\
-        
 ### Install MailHog
         apk --no-cache add --virtual mailhog-build-dependencies \
                 go \
@@ -28,9 +26,8 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
        rm -rf /usr/src/gocode ; \
        apk del --purge mailhog-build-dependencies ; \
        adduser -S -D -H -h /dev/null -u 1025 mailhog ; \
-
 ### Add Core Utils
-       apk --no-cache upgrade ; \
+###    apk --no-cache upgrade ; \
        apk --no-cache add \
             bash \
             curl \
