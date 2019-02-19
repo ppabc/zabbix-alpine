@@ -1,6 +1,5 @@
 FROM alpine:3.7
 LABEL maintainer="ppabc (ppabc@qq.com)"
-
 ### Set Defaults
     ARG S6_OVERLAY_VERSION=v1.21.2.2 
     ENV DEBUG_MODE=FALSE \
@@ -27,7 +26,8 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
        apk del --purge mailhog-build-dependencies ; \
        adduser -S -D -H -h /dev/null -u 1025 mailhog ; \
 ### Add Core Utils
-###    apk --no-cache upgrade ; \
+       apk update ; \
+       apk --no-cache upgrade ; \
        apk --no-cache add \
             bash \
             curl \
