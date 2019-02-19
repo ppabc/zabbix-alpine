@@ -10,7 +10,6 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
         RUN set -x ; \
         addgroup -g 10050 zabbix ; \
         adduser -S -D -H -h /dev/null -s /sbin/nologin -G zabbix -u 10050 zabbix ;\
-### Install MailHog
         apk --no-cache add --virtual mailhog-build-dependencies \
                 go \
                 git \
@@ -25,7 +24,6 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
        rm -rf /usr/src/gocode ; \
        apk del --purge mailhog-build-dependencies ; \
        adduser -S -D -H -h /dev/null -u 1025 mailhog ; \
-### Add Core Utils
        apk update ; \
        apk --no-cache upgrade ; \
        apk --no-cache add \
@@ -47,10 +45,8 @@ LABEL maintainer="ppabc (ppabc@qq.com)"
        cp -R /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
        echo 'Asia/Shanghai' > /etc/timezone ; \
        echo '%zabbix ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers ; \
-
 ### S6 Installation
        curl -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz | tar xfz - -C / ; \
-   
 ### Add Folders
        mkdir -p /assets/cron
 
