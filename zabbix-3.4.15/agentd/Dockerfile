@@ -1,7 +1,7 @@
 FROM alpine:3.7
 LABEL maintainer="ppabc (ppabc@qq.com)"
 ### Set Defaults
-    ARG S6_OVERLAY_VERSION=v1.21.2.2 
+    ARG S6_OVERLAY_VERSION=v1.21.8.0
     ENV DEBUG_MODE=FALSE \
         ENABLE_CRON=FALSE \
         ENABLE_SMTP=FALSE \
